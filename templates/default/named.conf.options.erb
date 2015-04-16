@@ -1,0 +1,45 @@
+options {
+	directory "/var/cache/bind";
+
+	dnssec-validation auto;
+
+	auth-nxdomain no; # conform to RFC1035
+
+	listen-on {
+		<%= @local_ip4addr %>; // <%= @local_hostname %>
+	};
+
+	recursion yes;
+	allow-recursion { acl-recursion; };
+
+	allow-transfer { none; };
+
+	version "Null";
+};
+
+logging {
+	channel "default_syslog" {
+		syslog local2;
+		severity debug;
+	};
+
+	channel audit_log {
+		file "/var/log/bind/named_audit.log" versions 3 size 10m;
+		severity debug;
+		print-time yes;
+	};
+
+	category default { audit_log; };
+	category general { audit_log; };
+	category security { audit_log; };
+	category config { audit_log; };
+	category resolver { audit_log; };
+	category xfer-in { audit_log; };
+	category xfer-out { audit_log; };
+	category notify { audit_log; };
+	category client { audit_log; };
+	category network { audit_log; };
+	category update { audit_log; };
+	category queries { audit_log; };
+	category lame-servers { audit_log; };
+};

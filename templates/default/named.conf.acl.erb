@@ -1,0 +1,5 @@
+// can recurse
+acl "acl-recursion" {
+	<%= @local_ip4addr %>; // <%= @local_hostname %>
+	<%= @primary_ip4addr %>; // <%= @primary_hostname %>
+};
