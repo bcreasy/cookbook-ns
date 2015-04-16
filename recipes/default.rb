@@ -11,6 +11,12 @@ package 'bind9' do
   action :install
 end
 
+directory '/var/log/bind' do
+  owner "bind"
+  group "bind"
+  mode "0755"
+end
+
 template "/etc/bind/named.conf" do
   source "named.conf"
   owner "root"
