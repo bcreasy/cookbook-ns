@@ -17,6 +17,12 @@ directory '/var/log/bind' do
   mode "0755"
 end
 
+directory '/etc/bind/slave' do
+  owner "bind"
+  group "bind"
+  mode "0755"
+end
+
 template "/etc/bind/named.conf" do
   source "named.conf"
   owner "root"
