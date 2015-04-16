@@ -35,6 +35,7 @@ template "/etc/bind/named.conf.acl" do
     :primary_hostname => node['primary']['hostname'],
     :primary_ip4addr  => node['primary']['ip4addr'],
   )
+  notifies :restart, 'service[bind9]', :delayed
 end
 
 template "/etc/bind/named.conf.options" do
@@ -48,6 +49,7 @@ template "/etc/bind/named.conf.options" do
     :primary_hostname => node['primary']['hostname'],
     :primary_ip4addr  => node['primary']['ip4addr'],
   )
+  notifies :restart, 'service[bind9]', :delayed
 end
 
 template "/etc/bind/named.conf.local" do
@@ -61,4 +63,7 @@ template "/etc/bind/named.conf.local" do
     :primary_hostname => node['primary']['hostname'],
     :primary_ip4addr  => node['primary']['ip4addr'],
   )
+  notifies :restart, 'service[bind9]', :delayed
 end
+
+service 'bind9'
