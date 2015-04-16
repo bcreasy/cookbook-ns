@@ -1,41 +1,41 @@
 zone "cabbits.com" {
   type slave;
-  file "slave/cabbits.com";
+  file "/etc/bind/slave/cabbits.com";
   masters { <%= @primary_ip4addr %>; };
 };
 
 zone "apt.cabbits.com" {
   type slave;
-  file "slave/apt.cabbits.com";
+  file "/etc/bind/slave/apt.cabbits.com";
   masters { <%= @primary_ip4addr %>; };
 };
 
 zone "briancreasy.com" {
   type slave;
-  file "slave/briancreasy.com";
+  file "/etc/bind/slave/briancreasy.com";
   masters { <%= @primary_ip4addr %>; };
 };
 
 zone "briancreasy.net" {
   type slave;
-  file "slave/briancreasy.net";
+  file "/etc/bind/slave/briancreasy.net";
   masters { <%= @primary_ip4addr %>; };
 };
 
 zone "briancreasy.org" {
   type slave;
-  file "slave/briancreasy.org";
+  file "/etc/bind/slave/briancreasy.org";
   masters { <%= @primary_ip4addr %>; };
 };
 
 zone "inner-focus.org" {
   type slave;
-  file "slave/inner-focus.org";
+  file "/etc/bind/slave/inner-focus.org";
   masters { <%= @primary_ip4addr %>; };
 };
 
 zone "halcyonhosting.net" {
   type slave;
-  file "slave/halcyonhosting.net";
+  file "/etc/bind/slave/halcyonhosting.net";
   masters { <%= @primary_ip4addr %>; };
 };
